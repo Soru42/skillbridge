@@ -1,0 +1,99 @@
+/* Footer: halka dark navy, compact height */
+.sbf {
+  padding: 2.5rem 0 1rem;
+  background-color: #14305a;
+}
+
+/* Footer ke andar light text chahiye, isliye colors yahin likhe hain */
+.sbf-brand {
+  margin-bottom: 0.6rem;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.sbf-brand span {
+  color: var(--teal-light);
+}
+
+.sbf-about {
+  max-width: 420px;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+.sbf-social {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.sbf-social:hover {
+  color: #ffffff;
+  background-color: var(--teal);
+  border-color: var(--teal);
+}
+
+.sbf-heading {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.sbf-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+}
+
+.sbf-links li {
+  margin-bottom: 0.4rem;
+}
+
+.sbf-links a {
+  color: #cbd5e1;
+  transition: color 0.2s ease;
+}
+
+.sbf-links a:hover {
+  color: var(--teal-light);
+}
+
+/* row ka gap kam kiya (JSX mein g-5 hai, yahan override) */
+.sbf .row {
+  --bs-gutter-y: 1.2rem;
+  --bs-gutter-x: 2rem;
+}
+
+.sbf-bottom {
+  margin-top: 1.5rem;
+  padding-top: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sbf-bottom strong {
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .sbf-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
