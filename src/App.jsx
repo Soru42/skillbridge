@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Footer from "./components/Footer"
-import LandingPage from "./pages/landingPage"
+import LandingPage from "./pages/LandingPage.jsx"
 
 
 function App() {
