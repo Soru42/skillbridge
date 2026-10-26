@@ -77,8 +77,7 @@ function LandingPage() {
               </div>
             </div>
 
-            {/* sample card on the rir
-            ht */}
+           
             <div className="col-lg-6 mt-5 mt-lg-0">
               <div className="sample-card card-box">
                 <span className="sample-tag">Sample preview</span>
