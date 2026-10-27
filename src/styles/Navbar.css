@@ -1,0 +1,31 @@
+.navbar-sb {
+  background: linear-gradient(90deg, #112240, #1e3a5f);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navBrand{
+  color: #14b8a6;
+}
+
+
+.navbar-sb .nav-link {
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+
+.navbar-sb .nav-link:hover,
+.navbar-sb .nav-link.active {
+  color: #14b8a6;
+}
+
+
+.navbar-sb .navbar-brand {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+
+
+
+

@@ -1,9 +1,4 @@
-/* ============================================
-   SkillBridge - global styles
-   Is file ko baar baar badalne ki zarurat nahi
-   ============================================ */
 
-/* ---------- Colors (ek hi jagah) ---------- */
 :root {
   --bg-main: #f5f8fc;
   --bg-card: #ffffff;
@@ -22,7 +17,6 @@
   --radius: 20px;
 }
 
-/* ---------- Basic reset ---------- */
 * {
   box-sizing: border-box;
 }

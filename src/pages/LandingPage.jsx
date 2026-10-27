@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import '../styles/LandingPage.css'
 
-// data for feature cards
+
 const features = [
   {
     icon: '🎯',
@@ -25,7 +25,7 @@ const features = [
   },
 ]
 
-// data for how it works
+
 const steps = [
   {
     number: 1,
@@ -48,7 +48,7 @@ function LandingPage() {
   return (
     <div className="landing">
 
-      {/* hero */}
+     
       <section className="hero">
         <div className="container">
           <div className="row align-items-center">
@@ -57,7 +57,7 @@ function LandingPage() {
               <span className="pill">Built for students & freshers</span>
 
               <h1 className="hero-heading">
-                Bridge the gap between your skills and your{' '}
+                Bridge the gap between your skills and your
                 <span className="green-text">dream job</span>
               </h1>
 
@@ -114,7 +114,6 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* features */}
       <section id="features" className="page-section">
         <div className="container">
           <div className="text-center mb-5">
@@ -138,7 +137,6 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* how it works */}
       <section id="how-it-works" className="page-section how-section">
         <div className="container">
           <div className="text-center mb-5">
@@ -162,7 +160,7 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* call to action */}
+      
       <section className="page-section">
         <div className="container">
           <div className="cta-box">
@@ -212,4 +210,4 @@ function LandingPage() {
   )
 }
 
-export default LandingPage
+export default LandingPage;
