@@ -1,0 +1,99 @@
+.signup-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0B1F3A;
+  padding: 16px;
+}
+
+.signup-card {
+  width: 100%;
+  max-width: 440px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.signup-card h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #0B1F3A;
+  margin-top: 8px;
+}
+
+.signup-card .bridge {
+  color: #14B8A6;
+}
+
+.signup-card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0B1F3A;
+  margin: 8px 0 20px;
+}
+
+.signup-card p {
+  color: #5B6B7F;
+}
+
+.signup-card label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #0B1F3A;
+  margin-bottom: 6px;
+}
+
+.signup-card .form-control {
+  padding: 10px 14px;
+  border: 1px solid #D5DDE8;
+  border-radius: 10px;
+}
+
+.signup-card .form-control:focus {
+  border-color: #14B8A6;
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+}
+
+.signup-card .SignUpbtn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  background-color: #0B1F3A;
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.signup-card .SignUpbtn:hover {
+  background-color: #14B8A6;
+}
+
+.signup-card .SignUpbtn:active {
+  transform: scale(0.98);
+}
+
+.signup-card .SignUpbtn:focus-visible {
+  outline: 3px solid rgba(20, 184, 166, 0.4);
+  outline-offset: 2px;
+}
+
+.signup-card form p {
+  text-align: center;
+  margin: 20px 0 0;
+  font-size: 0.9rem;
+}
+
+.signup-card a {
+  color: #0F8F82;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signup-card a:hover {
+  text-decoration: underline;
+}
