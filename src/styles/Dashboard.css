@@ -1,0 +1,46 @@
+.dashboard-layout {
+  /* Yahan se radius aur padding control karo */
+  --card-radius: 12px;
+  --card-pad: 18px;
+
+  display: flex;
+  align-items: flex-start;
+  min-height: 100vh;
+  background: var(--bg-main);
+}
+
+.dashboard-main {
+  flex: 1;
+  min-width: 0;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.overview-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+
+.dashboard-layout .card-box {
+  border-radius: var(--card-radius);
+  box-shadow: 0 2px 8px rgba(11, 31, 58, 0.05);
+}
+
+
+.dashboard-layout .btn-main,
+.dashboard-layout .btn-border {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  font-size: 14px;
+  border-radius: 10px;
+}

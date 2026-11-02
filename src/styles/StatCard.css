@@ -1,0 +1,40 @@
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+}
+
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tone-indigo { background: #eef2ff; color: #4f46e5; }
+.tone-green  { background: #ecfdf5; color: #059669; }
+.tone-orange { background: #fff7ed; color: #ea580c; }
+.tone-blue   { background: #eff6ff; color: #2563eb; }
+
+.stat-title {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.stat-value {
+  margin: 2px 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.stat-subtitle {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}

@@ -1,0 +1,119 @@
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 10% 15%, #c5eeea 0%, transparent 35%),
+    radial-gradient(circle at 90% 85%, #b8dedd 0%, transparent 35%),
+    linear-gradient(135deg, #effaf8, #dcefed);
+}
+
+/* Login Card */
+.login-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 28px !important;
+
+  box-shadow: 0 15px 40px rgba(11, 31, 58, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.login-card h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #0B1F3A;
+  margin-top: 8px;
+}
+
+.login-card .bridge {
+  color: #14B8A6;
+}
+
+.login-card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0B1F3A;
+  margin: 8px 0 20px;
+}
+
+.login-card p {
+  color: #5B6B7F;
+}
+
+.login-card label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #0B1F3A;
+  margin-bottom: 6px;
+}
+
+.login-card .form-control {
+  padding: 10px 14px;
+  border: 1px solid #D5DDE8;
+  border-radius: 10px;
+}
+
+.login-card .form-control:focus {
+  border-color: #14B8A6;
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+}
+
+.login-card .login-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  background-color: #0B1F3A;
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.login-card .login-btn:hover {
+  background-color: #14B8A6;
+}
+
+.login-card .login-btn:active {
+  transform: scale(0.98);
+}
+
+.login-card .login-btn:focus-visible {
+  outline: 3px solid rgba(20, 184, 166, 0.4);
+  outline-offset: 2px;
+}
+
+.login-card form p {
+  text-align: center;
+  margin: 20px 0 0;
+  font-size: 0.9rem;
+}
+
+.login-card a {
+  color: #0F8F82;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-card a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 22px !important;
+  }
+}
