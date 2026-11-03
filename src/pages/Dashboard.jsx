@@ -4,6 +4,8 @@ import StatCard from "../components/StatCard";
 import MatchOverview from "../components/MatchOverview";
 import { getUser, getSavedJobs, getRoadmapTasks } from "../utils/storage";
 import "../styles/Dashboard.css";
+import RecentJobs from "../components/RecentJobs";
+import QuickActions from "../components/QuickActions";
 
 function Dashboard() {
     const user = getUser();
@@ -51,6 +53,8 @@ function Dashboard() {
                 <div className="overview-row">
                     <MatchOverview job={jobs[0]} />
                 </div>
+                <RecentJobs jobs={jobs}/>
+                <QuickActions/>
             </main>
         </div>
     );

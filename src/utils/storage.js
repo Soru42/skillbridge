@@ -21,6 +21,3 @@ export function getRoadmapTasks() {
   return data === null ? [] : JSON.parse(data);
 }
 
-localStorage.setItem("skillbridgejobs", JSON.stringify([
-  { id: 1, jobTitle: "Frontend Developer", company: "Tech Solutions", dateAnalyzed: "2026-11-02", matchPercent: 78, matchedSkills: ["React", "JavaScript", "HTML5", "CSS"], missingSkills: ["Node.js", "MongoDB", "REST APIs"] }
-]));
