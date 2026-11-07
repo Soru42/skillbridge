@@ -1,0 +1,76 @@
+.resume-card {
+  padding: var(--card-pad);
+  border-radius: var(--card-radius);
+  background: linear-gradient(160deg, #172554 0%, #1e3a8a 100%);
+  border: 1px solid #312e81;
+  box-shadow: 0 8px 24px rgba(23, 37, 84, 0.18);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  color: #a5b4fc;
+}
+
+.resume-title {
+  margin: 10px 0 6px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.resume-text {
+  margin: 0 0 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #c7d2fe;
+}
+
+.resume-progress-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #c7d2fe;
+}
+
+.resume-progress-top strong {
+  color: #ffffff;
+}
+
+.resume-track {
+  height: 8px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+
+.resume-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: #10b981;
+}
+
+.resume-btn {
+  margin-top: 18px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.resume-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.18);
+}

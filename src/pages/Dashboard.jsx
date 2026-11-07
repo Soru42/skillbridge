@@ -1,11 +1,14 @@
-import Sidebar from "../components/Sidebar";
+
+import AppLayout from "../components/AppLayout";
 import WelcomeBanner from "../components/WelcomeBanner";
 import StatCard from "../components/StatCard";
 import MatchOverview from "../components/MatchOverview";
-import { getUser, getSavedJobs, getRoadmapTasks } from "../utils/storage";
-import "../styles/Dashboard.css";
 import RecentJobs from "../components/RecentJobs";
 import QuickActions from "../components/QuickActions";
+import ResumeCard from "../components/ResumeCard";
+import { getUser, getSavedJobs, getRoadmapTasks, getResume } from "../utils/storage";
+import { getResumeProgress } from "../utils/resumeProgress";
+import "../styles/Dashboard.css";
 
 function Dashboard() {
     const user = getUser();
@@ -37,26 +40,23 @@ function Dashboard() {
 
     // 4. Learning progress
     const doneTasks = tasks.filter((task) => task.completed).length;
-    const progress = tasks.length === 0 ? 0 : Math.round((doneTasks / tasks.length) * 100);
+    const progress = tasks.length === 0 ? 0 : Math.round((doneTasks / tasks.length) * 100); const resumeProgress = getResumeProgress(getResume());
+
+
 
     return (
-        <div className="dashboard-layout">
-            <Sidebar />
-            <main className="dashboard-main">
-                <WelcomeBanner name={firstName} />
-                <div className="stats-grid">
-                    <StatCard title="Jobs Analyzed" value={jobsAnalyzed} subtitle="Total analyzed job descriptions" icon="bi-briefcase" tone="indigo" />
-                    <StatCard title="Average Match Score" value={averageMatch + "%"} subtitle="Average skill compatibility" icon="bi-bullseye" tone="green" />
-                    <StatCard title="Missing Skills" value={missingCount} subtitle="Skills to improve" icon="bi-exclamation-circle" tone="orange" />
-                    <StatCard title="Learning Progress" value={progress + "%"} subtitle="Roadmap completion" icon="bi-graph-up-arrow" tone="blue" />
-                </div>
-                <div className="overview-row">
-                    <MatchOverview job={jobs[0]} />
-                </div>
-                <RecentJobs jobs={jobs}/>
-                <QuickActions/>
-            </main>
-        </div>
+        <AppLayout>
+            <WelcomeBanner name={firstName} />
+            <div className="overview-row">
+                <MatchOverview job={jobs[0]} />
+            </div>
+            <RecentJobs jobs={jobs} />
+            <div className="bottom-row">
+                <QuickActions />
+                <ResumeCard progress={resumeProgress} />
+            </div>
+        </AppLayout>
+
     );
 }
 

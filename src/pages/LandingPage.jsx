@@ -48,7 +48,7 @@ function LandingPage() {
   return (
     <div className="landing">
 
-     
+
       <section className="hero">
         <div className="container">
           <div className="row align-items-center">
@@ -77,8 +77,8 @@ function LandingPage() {
               </div>
             </div>
 
-           
-            <div className="col-lg-6 mt-5 mt-lg-0">
+
+            {/* <div className="col-lg-6 mt-5 mt-lg-0">
               <div className="sample-card card-box">
                 <span className="sample-tag">Sample preview</span>
 
@@ -107,6 +107,16 @@ function LandingPage() {
                   <span className="chip chip-grey">Node.js</span>
                   <span className="chip chip-grey">TypeScript</span>
                 </div>
+              </div>
+            </div> */}
+            {/* Hero Illustration */}
+            <div className="col-lg-6 mt-5 mt-lg-0">
+              <div className="hero-image-wrapper">
+                <img
+                  src="/landingPoster.png"
+                  alt="SkillBridge Career Opportunities"
+                  className="hero-image"
+                />
               </div>
             </div>
 
@@ -160,7 +170,7 @@ function LandingPage() {
         </div>
       </section>
 
-      
+
       <section className="page-section">
         <div className="container">
           <div className="cta-box">

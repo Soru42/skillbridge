@@ -96,9 +96,9 @@ a {
 /* ---------- Buttons ---------- */
 .btn-main,
 .btn-border {
-  padding: 0.8rem 1.8rem;
-  font-weight: 600;
-  border-radius: 25px;
+  padding: 0.6rem 1.1rem;
+  font-weight: 500;
+  border-radius: 23px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 

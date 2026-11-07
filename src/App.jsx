@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar.jsx";
 import SignUp from "./pages/SignUp.jsx";
 import Login from "./pages/Login.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
+import Footer from "./components/Footer.jsx";
+import JobMatcher from "./pages/JobMatcher.jsx";
 
 // Ye pages app ke andar ke hain, inpe website ka Navbar nahi dikhana
 const appPages = ["/dashboard"];
@@ -21,8 +23,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/job-matcher" element={<JobMatcher/>} />
         </Routes>
       </main>
+      <Footer/>
     </div>
   );
 }

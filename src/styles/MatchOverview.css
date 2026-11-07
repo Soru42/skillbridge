@@ -8,9 +8,14 @@
   font-weight: 700;
 }
 
-.match-sub,
-.match-empty {
+.match-sub {
   margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.match-empty {
+  margin: 4px 0 14px;
   font-size: 13px;
   color: var(--text-muted);
 }

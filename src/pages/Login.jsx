@@ -51,7 +51,7 @@ function Login() {
                     <img src="/sbLogoPng.png" alt="" width={"200px"} />
                 </div>
                 <p className="text-center">Welcome back. Pick up where you left off.</p>
-                <h2>Log in to your account</h2>
+                <h2 className='text-center'>Log in to your account</h2>
 
                 <form onSubmit={handleSubmit}>
                     <div className="form-group mb-3">
