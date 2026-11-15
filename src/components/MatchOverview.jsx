@@ -17,6 +17,11 @@ function MatchOverview({ job }) {
     );
   }
 
+  // Adhoore data se bachne ke liye safe values
+  const matchPercent = job.matchPercent || 0;
+  const matchedSkills = job.matchedSkills || [];
+  const missingSkills = job.missingSkills || [];
+
   return (
     <div className="match-card card-box">
       <h3>Your Job Match Overview</h3>
@@ -27,11 +32,11 @@ function MatchOverview({ job }) {
         <div
           className="match-circle"
           style={{
-            background: `conic-gradient(var(--primary) ${job.matchPercent}%, #e2e8f0 0)`,
+            background: `conic-gradient(var(--primary) ${matchPercent}%, #e2e8f0 0)`,
           }}
         >
           <div className="match-circle-inner">
-            <strong>{job.matchPercent}%</strong>
+            <strong>{matchPercent}%</strong>
             <span>Job match</span>
           </div>
         </div>
@@ -40,14 +45,16 @@ function MatchOverview({ job }) {
         <div className="match-skills">
           <p className="match-label">MATCHED SKILLS</p>
           <div className="chip-row">
-            {job.matchedSkills.map((skill) => (
+            {matchedSkills.length === 0 && <span className="match-empty">None yet</span>}
+            {matchedSkills.map((skill) => (
               <span key={skill} className="skill-chip skill-chip-green">{skill}</span>
             ))}
           </div>
 
           <p className="match-label">SKILLS TO DEVELOP</p>
           <div className="chip-row">
-            {job.missingSkills.map((skill) => (
+            {missingSkills.length === 0 && <span className="match-empty">None, great job!</span>}
+            {missingSkills.map((skill) => (
               <span key={skill} className="skill-chip skill-chip-orange">{skill}</span>
             ))}
           </div>
