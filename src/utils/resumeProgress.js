@@ -18,3 +18,4 @@ export function getResumeProgress(resume) {
   const filled = checks.filter((item) => item === true).length;
   return Math.round((filled / checks.length) * 100);
 }
+

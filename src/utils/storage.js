@@ -22,7 +22,7 @@ export function getSavedJobs() {
   }
 }
 
-// NEW: adds one job at the top of the saved jobs list
+// Adds one job at the top of the saved jobs list
 export function saveJob(job) {
   const jobs = getSavedJobs();
   const newJob = {
@@ -33,18 +33,44 @@ export function saveJob(job) {
   localStorage.setItem(JOBS_KEY, JSON.stringify([newJob, ...jobs]));
 }
 
-// NEW: removes one job by its id (used on the Saved Jobs page later)
+// Removes one job by its id
 export function deleteJob(id) {
   const jobs = getSavedJobs().filter((job) => job.id !== id);
   localStorage.setItem(JOBS_KEY, JSON.stringify(jobs));
 }
 
 export function getRoadmapTasks() {
-  const data = localStorage.getItem(TASKS_KEY);
-  return data === null ? [] : JSON.parse(data);
+  try {
+    const data = localStorage.getItem(TASKS_KEY);
+    return data === null ? [] : JSON.parse(data);
+  } catch (error) {
+    console.error("Could not read roadmap tasks:", error);
+    return [];
+  }
+}
+
+export function saveRoadmapTasks(tasks) {
+  localStorage.setItem(TASKS_KEY, JSON.stringify(tasks));
+}
+
+// Removes one roadmap task by its id
+export function deleteRoadmapTask(id) {
+  const tasks = getRoadmapTasks().filter((task) => task.id !== id);
+  saveRoadmapTasks(tasks);
 }
 
 export function getResume() {
-  const data = localStorage.getItem(RESUME_KEY);
-  return data === null ? null : JSON.parse(data);
+  try{
+    const data = localStorage.getItem(RESUME_KEY);
+      return data === null ? null : JSON.parse(data);
+  }
+  catch(error){
+    console.error("could not fetch",error);
+    return null;
+  }
 }
+
+export function saveResume(resume) {
+  localStorage.setItem(RESUME_KEY, JSON.stringify(resume));
+}
+

@@ -1,5 +1,4 @@
 
-import AppLayout from "../components/AppLayout";
 import WelcomeBanner from "../components/WelcomeBanner";
 import StatCard from "../components/StatCard";
 import MatchOverview from "../components/MatchOverview";
@@ -9,6 +8,8 @@ import ResumeCard from "../components/ResumeCard";
 import { getUser, getSavedJobs, getRoadmapTasks, getResume } from "../utils/storage";
 import { getResumeProgress } from "../utils/resumeProgress";
 import "../styles/Dashboard.css";
+
+
 
 function Dashboard() {
     const user = getUser();
@@ -45,8 +46,14 @@ function Dashboard() {
 
 
     return (
-        <AppLayout>
+        <>
             <WelcomeBanner name={firstName} />
+            <div className="stats-row">
+                <StatCard title="Jobs Analyzed" value={jobsAnalyzed} />
+                <StatCard title="Average Match" value={averageMatch + "%"} />
+                <StatCard title="Missing Skills" value={missingCount} />
+                <StatCard title="Learning Progress" value={progress + "%"} />
+            </div>
             <div className="overview-row">
                 <MatchOverview job={jobs[0]} />
             </div>
@@ -55,7 +62,8 @@ function Dashboard() {
                 <QuickActions />
                 <ResumeCard progress={resumeProgress} />
             </div>
-        </AppLayout>
+        </>
+
 
     );
 }

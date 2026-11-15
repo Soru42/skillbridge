@@ -52,6 +52,13 @@
   align-items: stretch;
 }
 
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
 @media (max-width: 1100px) {
   .bottom-row {
     grid-template-columns: 1fr;
