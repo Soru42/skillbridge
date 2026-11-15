@@ -59,7 +59,7 @@ const knownSkills = [
 // Checks if a skill appears as a whole word in the text
 function hasSkill(text, skill) {
   // Escape special characters like + . / so regex treats them as normal text
-  const safeSkill = skill.replace(/[.*+?^${}()|[\]\\\/]/g, "\\$&");
+  const safeSkill = skill.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
   // The skill must not have a letter or number just before or after it
   const regex = new RegExp("(?<![a-z0-9])" + safeSkill + "(?![a-z0-9])");

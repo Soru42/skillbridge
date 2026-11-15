@@ -8,8 +8,13 @@ export function saveUser(user) {
 }
 
 export function getUser() {
-  const data = localStorage.getItem(USER_KEY);
-  return data === null ? null : JSON.parse(data);
+  try {
+    const data = localStorage.getItem(USER_KEY);
+    return data === null ? null : JSON.parse(data);
+  } catch (error) {
+    console.error("Could not read user:", error);
+    return null;
+  }
 }
 
 export function getSavedJobs() {

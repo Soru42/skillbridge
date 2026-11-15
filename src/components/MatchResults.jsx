@@ -22,13 +22,10 @@ function MatchResults({ result, jobTitle, company }) {
 
     // Build a short summary sentence
     const totalSkills = matchedSkills.length + missingSkills.length;
-    let summary = "";
-    if (totalSkills === 0) {
-        summary =
-            "No known skills were found in this job description. Try pasting a longer description.";
-    } else {
-        summary = `You match ${matchedSkills.length} of ${totalSkills} skills found in this job description.`;
-    }
+    const summary =
+        totalSkills === 0
+            ? "No known skills were found in this job description. Try pasting a longer description."
+            : `You match ${matchedSkills.length} of ${totalSkills} skills found in this job description.`;
 
     return (
         <div className="jm-card p-4 mt-4">
