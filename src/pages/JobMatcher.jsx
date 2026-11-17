@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { analyzeJob } from "../utils/matching";
+import { Link } from "react-router-dom";
+import { analyzeJob, softSkills } from "../utils/matching";
 import { saveJob } from "../utils/storage";
 import MatchResults from "../components/MatchResults";
 import "../styles/JobMatcher.css";
@@ -13,6 +14,7 @@ function JobMatcher() {
     const [result, setResult] = useState(null);
     const [error, setError] = useState("");
     const [isSaved, setIsSaved] = useState(false);
+    const [isAnalyzing, setIsAnalyzing] = useState(false);
 
     function addSkill() {
         const newSkill = skillInput.trim().toLowerCase();
@@ -53,7 +55,14 @@ function JobMatcher() {
 
         setError("");
         setIsSaved(false);
-        setResult(analyzeJob(skills, jobDescription));
+        setResult(null); // hide the old result while loading
+        setIsAnalyzing(true);
+
+        // Short delay so the user can see the loader
+        setTimeout(() => {
+            setResult(analyzeJob(skills, jobDescription));
+            setIsAnalyzing(false);
+        }, 700);
     }
 
     function handleSaveJob() {
@@ -64,6 +73,8 @@ function JobMatcher() {
             matchPercent: result.matchPercent,
             matchedSkills: result.matchedSkills,
             missingSkills: result.missingSkills,
+            softMatched: result.softMatched || [],
+            softMissing: result.softMissing || [],
         });
         setIsSaved(true);
     }
@@ -75,6 +86,15 @@ function JobMatcher() {
 
     function addSuggestedSkill(skill) {
         setSkills([...skills, skill]);
+    }
+
+    // Select or unselect a soft skill chip
+    function toggleSoftSkill(skill) {
+        if (skills.includes(skill)) {
+            removeSkill(skill);
+        } else {
+            setSkills([...skills, skill]);
+        }
     }
 
     return (
@@ -203,35 +223,93 @@ function JobMatcher() {
                                 </div>
                             </div>
                         )}
+
+                        {/* Soft skills: click to select or unselect */}
+                        <div className="mt-4">
+                            <p className="text-muted small mb-2">
+                                Soft skills (click to select)
+                            </p>
+                            <div className="d-flex flex-wrap gap-2">
+                                {softSkills.map((skill) => (
+                                    <button
+                                        key={skill}
+                                        type="button"
+                                        className={`skill-chip skill-chip-suggest ${
+                                            skills.includes(skill) ? "skill-chip-active" : ""
+                                        }`}
+                                        aria-pressed={skills.includes(skill)}
+                                        onClick={() => toggleSoftSkill(skill)}
+                                    >
+                                        {skill}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            {/* Error and Analyze button */}
+              {/* Error and Analyze button */}
             <div className="mt-4">
                 {error && (
                     <div className="alert alert-danger py-2" role="alert">
                         {error}
                     </div>
                 )}
-                <button type="button" className="jm-btn-primary" onClick={handleAnalyze}>
-                    Analyze Match
+                <button
+                    type="button"
+                    className="jm-btn-primary"
+                    onClick={handleAnalyze}
+                    disabled={isAnalyzing}
+                    aria-busy={isAnalyzing}
+                >
+                    {isAnalyzing ? (
+                        <>
+                            <span
+                                className="spinner-border spinner-border-sm me-2"
+                                aria-hidden="true"
+                            ></span>
+                            Analyzing...
+                        </>
+                    ) : (
+                        <>
+                            <i className="bi bi-lightning-charge-fill me-2"></i>
+                            Analyze Match
+                        </>
+                    )}
                 </button>
             </div>
 
-            {/* Results and Save button */}
+            {/* Results and action bar */}
             {result && (
                 <>
                     <MatchResults result={result} jobTitle={jobTitle} company={company} />
-                    <div className="mt-3">
+
+                    <div className="jm-actions">
                         <button
                             type="button"
-                            className="btn btn-success"
+                            className={isSaved ? "jm-btn-saved" : "jm-btn-save"}
                             onClick={handleSaveJob}
                             disabled={isSaved}
                         >
-                            {isSaved ? "Saved ✓" : "Save this job"}
+                            {isSaved ? (
+                                <>
+                                    <i className="bi bi-check-circle-fill me-2"></i>
+                                    Saved
+                                </>
+                            ) : (
+                                <>
+                                    <i className="bi bi-bookmark-plus me-2"></i>
+                                    Save this job
+                                </>
+                            )}
                         </button>
+
+                        {isSaved && (
+                            <Link to="/saved-jobs" className="jm-link">
+                                View saved jobs <i className="bi bi-arrow-right"></i>
+                            </Link>
+                        )}
                     </div>
                 </>
             )}

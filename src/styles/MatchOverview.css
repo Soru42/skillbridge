@@ -81,19 +81,65 @@
   margin-bottom: 14px;
 }
 
-.skill-chip {
+/* Chips: .match-card ke andar scoped, taaki dusri CSS files override na karein */
+.match-card .skill-chip {
   padding: 3px 10px;
   font-size: 12px;
   font-weight: 500;
-  border-radius: 6px;
+  border-radius: 999px;
 }
 
-.skill-chip-green {
+.match-card .skill-chip-green {
   background: #dcfce7;
   color: #166534;
 }
 
-.skill-chip-orange {
+.match-card .skill-chip-orange {
   background: #ffedd5;
   color: #9a3412;
+}
+
+/* Latest role info panel */
+.match-card .match-info {
+  min-width: 200px;
+  padding-left: 24px;
+  border-left: 1px solid #e2e8f0;
+}
+
+.match-role {
+  margin: 0 0 2px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.match-company {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.match-count {
+  margin: 12px 0 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.match-card .level-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+.match-card .level-high { background: #dcfce7; color: #166534; }
+.match-card .level-mid  { background: #fef3c7; color: #92400e; }
+.match-card .level-low  { background: #fee2e2; color: #991b1b; }
+
+@media (max-width: 900px) {
+  .match-card .match-info {
+    border-left: none;
+    padding-left: 0;
+  }
 }

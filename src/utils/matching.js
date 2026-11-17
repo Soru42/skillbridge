@@ -51,9 +51,13 @@ const knownSkills = [
   "manufacturing", "quality control", "six sigma", "lean manufacturing",
   "gd&t", "product design",
 
-  // Common professional skills
-  "communication", "teamwork", "leadership", "project management",
-  "time management", "technical writing",
+];
+
+// Soft skills are checked separately and do not change the match percentage
+export const softSkills = [
+  "communication", "problem solving", "teamwork", "leadership",
+  "time management", "project management", "technical writing",
+  "critical thinking", "adaptability",
 ];
 
 // Checks if a skill appears as a whole word in the text
@@ -67,32 +71,37 @@ function hasSkill(text, skill) {
   return regex.test(text);
 }
 
-// Compares the user's skills with a job description
 export function analyzeJob(userSkills, jobDescription) {
-  const text = jobDescription.toLowerCase();
+  // Lowercase the text and treat "problem-solving" same as "problem solving"
+  const text = jobDescription
+    .toLowerCase()
+    .replace("problem-solving", "problem solving");
 
-  // Clean the user's skills: lowercase and no extra spaces
   const cleanUserSkills = userSkills.map((skill) => skill.trim().toLowerCase());
 
-  // Step 1: find which known skills the job asks for
+  // Technical skills
   const jobSkills = knownSkills.filter((skill) => hasSkill(text, skill));
 
-  // Step 2: also add the user's own skills if the job mentions them
   cleanUserSkills.forEach((skill) => {
-    if (hasSkill(text, skill) && !jobSkills.includes(skill)) {
+    const isSoft = softSkills.includes(skill);
+    if (!isSoft && hasSkill(text, skill) && !jobSkills.includes(skill)) {
       jobSkills.push(skill);
     }
   });
 
-  // Step 3: split job skills into matched and missing
   const matchedSkills = jobSkills.filter((skill) => cleanUserSkills.includes(skill));
   const missingSkills = jobSkills.filter((skill) => !cleanUserSkills.includes(skill));
 
-  // Step 4: calculate the percentage (avoid dividing by zero)
+  // Soft skills (separate, not part of the percentage)
+  const jobSoftSkills = softSkills.filter((skill) => hasSkill(text, skill));
+  const softMatched = jobSoftSkills.filter((skill) => cleanUserSkills.includes(skill));
+  const softMissing = jobSoftSkills.filter((skill) => !cleanUserSkills.includes(skill));
+
   let matchPercent = 0;
   if (jobSkills.length > 0) {
     matchPercent = Math.round((matchedSkills.length / jobSkills.length) * 100);
   }
 
-  return { matchPercent, matchedSkills, missingSkills };
+  return { matchPercent, matchedSkills, missingSkills, softMatched, softMissing };
 }
+

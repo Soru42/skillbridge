@@ -1,23 +1,42 @@
 /* ---------- Page header ---------- */
 .jm-hero {
-    background: linear-gradient(135deg, #0f1f3d 0%, #1e3a6e 100%);
+    background: linear-gradient(135deg, #172554 0%, #1e3a8a 100%);
     color: #fff;
-    border-radius: 16px;
-    padding: 2rem 1.75rem;
+    border-radius: var(--card-radius, 12px);
+    padding: 1.5rem 1.75rem;
     margin-bottom: 1.5rem;
+    box-shadow: 0 8px 24px rgba(23, 37, 84, 0.18);
+}
+
+.jm-hero h2 {
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 800;
 }
 
 .jm-hero p {
-    color: #c7d2e8;
+    color: #c7d2fe;
     margin-bottom: 0;
 }
 
 /* ---------- Cards ---------- */
 .jm-card {
-    border: 1px solid #e6eaf2;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(15, 31, 61, 0.06);
+    border: 1px solid #e2e8f0;
+    border-radius: var(--card-radius, 12px);
+    box-shadow: 0 2px 8px rgba(11, 31, 58, 0.05);
     background: #fff;
+}
+
+.jm-card h5 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy, #172554);
+}
+
+.jm-card .form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2a44;
 }
 
 .jm-step {
@@ -90,6 +109,12 @@
     color: #92400e;
 }
 
+.skill-chip-active {
+    background: #4f46e5;
+    border: 1px solid #4f46e5;
+    color: #fff;
+}
+
 /* ---------- Analyze button ---------- */
 .jm-btn-primary {
     background: #4f46e5;
@@ -103,6 +128,11 @@
 .jm-btn-primary:hover {
     background: #4338ca;
     color: #fff;
+}
+
+.jm-btn-primary:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
 }
 
 /* ---------- Score ring ---------- */
@@ -139,4 +169,50 @@
     border-left: 4px solid #4f46e5;
     border-radius: 10px;
     padding: 1rem 1.25rem;
+}
+/* ---------- Action bar (Save + link) ---------- */
+.jm-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.jm-btn-save,
+.jm-btn-saved {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.65rem 1.4rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.jm-btn-save {
+    background: #ffffff;
+    color: #4f46e5;
+    border: 1.5px solid #4f46e5;
+}
+
+.jm-btn-save:hover {
+    background: #eef2ff;
+}
+
+.jm-btn-saved {
+    background: #dcfce7;
+    color: #166534;
+    border: 1.5px solid #86efac;
+    cursor: default;
+}
+
+.jm-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4f46e5;
+    text-decoration: none;
+}
+
+.jm-link:hover {
+    color: #4338ca;
 }

@@ -2,11 +2,89 @@
   padding: 24px;
 }
 
+/* ---------- Page header ---------- */
 .rb-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 18px 22px;
+  background: linear-gradient(135deg, #ffffff 0%, #eef2ff 100%);
+  border: 1px solid #dbe2f1;
+  border-radius: var(--card-radius, 12px);
+  box-shadow: 0 2px 8px rgba(11, 31, 58, 0.05);
+}
+
+.rb-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.rb-header-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(79, 70, 229, 0.3);
+}
+
+.rb-title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--navy, #172554);
+}
+
+.rb-subtitle {
+  margin: 2px 0 0;
+  font-size: 14px;
+  color: var(--text-muted, #5f6b85);
+}
+
+.rb-header-right {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.rb-saved-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #166534;
+  background: #dcfce7;
+  border-radius: 999px;
+}
+
+.rb-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.55rem 1.2rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #4f46e5;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.rb-download-btn:hover {
+  background: #4338ca;
 }
 
 .rb-layout {

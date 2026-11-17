@@ -22,6 +22,17 @@ function MatchOverview({ job }) {
   const matchedSkills = job.matchedSkills || [];
   const missingSkills = job.missingSkills || [];
 
+  // Match level, matchPercent se nikalte hain
+  let level = "Needs work";
+  let levelClass = "level-low";
+  if (matchPercent >= 75) {
+    level = "Strong match";
+    levelClass = "level-high";
+  } else if (matchPercent >= 50) {
+    level = "Moderate match";
+    levelClass = "level-mid";
+  }
+
   return (
     <div className="match-card card-box">
       <h3>Your Job Match Overview</h3>
@@ -62,6 +73,19 @@ function MatchOverview({ job }) {
           <Link to="/job-matcher" className="btn-border">
             Analyze New Job
           </Link>
+        </div>
+
+        {/* Latest role info */}
+        <div className="match-info">
+          <p className="match-label">LATEST ROLE</p>
+          <h4 className="match-role">{job.jobTitle || "Untitled role"}</h4>
+          <p className="match-company">{job.company || "Company not added"}</p>
+
+          <span className={`level-badge ${levelClass}`}>{level}</span>
+
+          <p className="match-count">
+            {matchedSkills.length} matched · {missingSkills.length} to develop
+          </p>
         </div>
       </div>
     </div>

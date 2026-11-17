@@ -12,8 +12,14 @@
 
 .qa-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 14px;
+}
+
+@media (max-width: 900px) {
+  .qa-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .qa-card {

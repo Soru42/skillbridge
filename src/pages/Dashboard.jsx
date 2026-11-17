@@ -4,6 +4,7 @@ import MatchOverview from "../components/MatchOverview";
 import RecentJobs from "../components/RecentJobs";
 import QuickActions from "../components/QuickActions";
 import ResumeCard from "../components/ResumeCard";
+import RoadmapCard from "../components/RoadmapCard";
 import { getUser, getSavedJobs, getRoadmapTasks, getResume } from "../utils/storage";
 import { getResumeProgress, getMissingSections } from "../utils/resumeProgress";
 import "../styles/Dashboard.css";
@@ -49,17 +50,43 @@ function Dashboard() {
     <>
       <WelcomeBanner name={firstName} />
       <div className="stats-row">
-        <StatCard title="Jobs Analyzed" value={jobsAnalyzed} />
-        <StatCard title="Average Match" value={averageMatch + "%"} />
-        <StatCard title="Missing Skills" value={missingCount} />
-        <StatCard title="Learning Progress" value={progress + "%"} />
+        <StatCard
+          title="Jobs Analyzed"
+          value={jobsAnalyzed}
+          icon="bi-briefcase"
+          tone="indigo"
+          subtitle="Saved job reports"
+        />
+        <StatCard
+          title="Average Match"
+          value={averageMatch + "%"}
+          icon="bi-bullseye"
+          tone="green"
+          subtitle="Across all saved jobs"
+        />
+        <StatCard
+          title="Missing Skills"
+          value={missingCount}
+          icon="bi-exclamation-triangle"
+          tone="orange"
+          subtitle="Skills to learn"
+        />
+        <StatCard
+          title="Learning Progress"
+          value={progress + "%"}
+          icon="bi-graph-up-arrow"
+          tone="blue"
+          subtitle={doneTasks + " of " + tasks.length + " tasks done"}
+        />
       </div>
+
       <div className="overview-row">
         <MatchOverview job={jobs[0]} />
       </div>
       <RecentJobs jobs={jobs} />
+      <QuickActions />
       <div className="bottom-row">
-        <QuickActions />
+        <RoadmapCard tasks={tasks} />
         <ResumeCard progress={resumeProgress} missing={missingSections} />
       </div>
     </>

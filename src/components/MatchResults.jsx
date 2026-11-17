@@ -1,5 +1,11 @@
 function MatchResults({ result, jobTitle, company }) {
-    const { matchPercent, matchedSkills, missingSkills } = result;
+    const {
+        matchPercent,
+        matchedSkills,
+        missingSkills,
+        softMatched = [],
+        softMissing = [],
+    } = result;
 
     // Pick a ring color based on the score
     let ringColor = "#dc2626";
@@ -22,13 +28,17 @@ function MatchResults({ result, jobTitle, company }) {
 
     // Build a short summary sentence
     const totalSkills = matchedSkills.length + missingSkills.length;
-    const summary =
-        totalSkills === 0
-            ? "No known skills were found in this job description. Try pasting a longer description."
-            : `You match ${matchedSkills.length} of ${totalSkills} skills found in this job description.`;
+    let summary = "";
+    if (totalSkills === 0) {
+        summary =
+            "No known technical skills were found in this job description. Try pasting a longer description.";
+    } else {
+        summary = `You match ${matchedSkills.length} of ${totalSkills} technical skills found in this job description.`;
+    }
 
     return (
         <div className="jm-card p-4 mt-4">
+            {/* Top: score + heading */}
             <div className="d-flex align-items-center gap-4 flex-wrap mb-4">
                 <div
                     className="score-ring"
@@ -44,32 +54,70 @@ function MatchResults({ result, jobTitle, company }) {
                 </div>
             </div>
 
-            <h6>Matched skills</h6>
-            {matchedSkills.length === 0 ? (
-                <p className="text-muted">No matching skills found.</p>
-            ) : (
-                <div className="d-flex flex-wrap gap-2 mb-4">
-                    {matchedSkills.map((skill) => (
-                        <span key={skill} className="skill-chip skill-chip-matched">
-                            {skill}
-                        </span>
-                    ))}
+            {/* Matched and missing side by side */}
+            <div className="row g-3 mb-3">
+                <div className="col-md-6">
+                    <div className="mr-panel mr-panel-matched h-100">
+                        <h6 className="mr-panel-title">
+                            Matched skills ({matchedSkills.length})
+                        </h6>
+                        {matchedSkills.length === 0 ? (
+                            <p className="text-muted small mb-0">No matching skills found.</p>
+                        ) : (
+                            <div className="d-flex flex-wrap gap-2">
+                                {matchedSkills.map((skill) => (
+                                    <span key={skill} className="skill-chip skill-chip-matched">
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </div>
+
+                <div className="col-md-6">
+                    <div className="mr-panel mr-panel-missing h-100">
+                        <h6 className="mr-panel-title">
+                            Missing skills ({missingSkills.length})
+                        </h6>
+                        {missingSkills.length === 0 ? (
+                            <p className="text-muted small mb-0">No missing skills. Great!</p>
+                        ) : (
+                            <div className="d-flex flex-wrap gap-2">
+                                {missingSkills.map((skill) => (
+                                    <span key={skill} className="skill-chip skill-chip-missing">
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+
+            {/* Soft skills */}
+            {softMatched.length + softMissing.length > 0 && (
+                <div className="mr-panel mb-3">
+                    <h6 className="mr-panel-title">
+                        Soft skills{" "}
+                        <span className="text-muted fw-normal">(not counted in score)</span>
+                    </h6>
+                    <div className="d-flex flex-wrap gap-2">
+                        {softMatched.map((skill) => (
+                            <span key={skill} className="skill-chip skill-chip-matched">
+                                {skill}
+                            </span>
+                        ))}
+                        {softMissing.map((skill) => (
+                            <span key={skill} className="skill-chip skill-chip-missing">
+                                {skill}
+                            </span>
+                        ))}
+                    </div>
                 </div>
             )}
 
-            <h6>Missing skills</h6>
-            {missingSkills.length === 0 ? (
-                <p className="text-muted">No missing skills. Great!</p>
-            ) : (
-                <div className="d-flex flex-wrap gap-2 mb-4">
-                    {missingSkills.map((skill) => (
-                        <span key={skill} className="skill-chip skill-chip-missing">
-                            {skill}
-                        </span>
-                    ))}
-                </div>
-            )}
-
+            {/* Priority */}
             {prioritySkills.length > 0 && (
                 <div className="priority-box">
                     <strong>Skills to prioritize</strong>

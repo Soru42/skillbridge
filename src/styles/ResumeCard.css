@@ -55,8 +55,47 @@
   background: #10b981;
 }
 
+/* Missing sections */
+.resume-missing {
+  margin-top: 20px;
+}
+
+.resume-missing-label {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  color: #a5b4fc;
+}
+
+.resume-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.resume-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #e0e7ff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+
+.resume-chip-done {
+  color: #a7f3d0;
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+/* Button hamesha card ke bottom mein */
 .resume-btn {
-  margin-top: 18px;
+  margin-top: auto;
   padding: 10px;
   display: flex;
   align-items: center;

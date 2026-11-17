@@ -75,10 +75,30 @@ function ResumeBuilder() {
   return (
     <div className="rb-page">
       <div className="rb-header">
-        <h1>Resume Builder</h1>
-        <button className="rb-btn" onClick={() => window.print()}>
-          Download / Print PDF
-        </button>
+        <div className="rb-header-left">
+          <div className="rb-header-icon">
+            <i className="bi bi-file-earmark-text"></i>
+          </div>
+          <div>
+            <h1 className="rb-title">Resume Builder</h1>
+            <p className="rb-subtitle">
+              Fill in your details and watch your resume take shape live.
+            </p>
+          </div>
+        </div>
+
+        <div className="rb-header-right">
+          <span className="rb-saved-badge">
+            <i className="bi bi-check-circle-fill"></i> Auto-saved
+          </span>
+          <button
+            type="button"
+            className="rb-download-btn"
+            onClick={() => window.print()}
+          >
+            <i className="bi bi-printer"></i> Download / Print PDF
+          </button>
+        </div>
       </div>
 
       <div className="rb-layout">
