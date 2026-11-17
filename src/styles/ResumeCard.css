@@ -55,9 +55,9 @@
   background: #10b981;
 }
 
-/* Missing sections */
 .resume-missing {
   margin-top: 20px;
+  margin-bottom: 18px;
 }
 
 .resume-missing-label {
