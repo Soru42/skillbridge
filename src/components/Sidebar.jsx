@@ -36,15 +36,15 @@ function Sidebar() {
 
 
             <div className="sidebar-bottom">
-                <NavLink to="/profile" className="sidebar-link">
+                {/* <NavLink to="/profile" className="sidebar-link">
                     <i className="bi bi-person"></i>
                     <span>User Profile</span>
-                </NavLink>
+                </NavLink> */}
 
-                <NavLink to="/settings" className="sidebar-link">
+                {/* <NavLink to="/settings" className="sidebar-link">
                     <i className="bi bi-gear"></i>
                     <span>Settings</span>
-                </NavLink>
+                </NavLink> */}
 
                 <NavLink to="/login" className="sidebar-link">
                     <i className="bi bi-box-arrow-right"></i>

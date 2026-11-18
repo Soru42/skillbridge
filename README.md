@@ -4,7 +4,7 @@
 
 SkillBridge is a web app that helps students and freshers prepare for jobs. It compares your skills with a job description, shows what you are missing, turns those gaps into a learning plan, and helps you build a clean, ATS-friendly resume.
 
-**Live Demo:** Coming soon
+**Live Demo:** [skillbridge-olive-three.vercel.app](https://skillbridge-olive-three.vercel.app/)
 
 ---
 
